@@ -5,14 +5,22 @@ const loadData=()=>{
     fetch(url)
     .then(res=>res.json())
     .then(data=>displayData(data))
+    if(inputValue===''){
+        return alert('Please enter country name')
+    }
     countrySearch.value='';
 }
 const displayData=countris=>{
     const displayCountry=document.getElementById('display-country')
     countris.forEach(country=>{
        displayCountry.innerHTML=''
+       console.log(country);
         const div=document.createElement('div')
         div.classList.add('country')
+        let lag='';
+        for(const [,lagu] of Object.entries(country.languages)){
+            lag+=lagu+' ';
+        }
         div.innerHTML=`
             <img width="200px" src="${country.flags.png}">
             <h2>${country.name.common}</h2>
@@ -20,7 +28,7 @@ const displayData=countris=>{
             <h5>Capital: ${country.capital}</h5>
             <p>Population: ${country.population}</p>
             <p>Time Zone: ${country.timezones}</p>
-            
+            <p>Language: ${lag}</p>
             <p>Continent: ${country.continents}</p>
             <p>Sort Spelling: ${country.altSpellings[0]}</p>
         `
