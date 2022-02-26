@@ -18,6 +18,7 @@ const displayData=countris=>{
         const div=document.createElement('div')
         div.classList.add('country')
        const language=Object.values(country.languages)
+       const car =Object.values(country.car)
         div.innerHTML=`
             <img width="200px" src="${country.flags.png}">
             <h2>${country.name.common}</h2>
@@ -25,6 +26,7 @@ const displayData=countris=>{
             <h5>Capital: ${country.capital}</h5>
             <p>Population: ${country.population}</p>
             <p>Time Zone: ${country.timezones}</p>
+            <p>Car side: ${car[1]}</p>
             <p>Language: ${language}</p>
             <p>Continent: ${country.continents}</p>
             <p>Sort Spelling: ${country.altSpellings[0]}</p>
