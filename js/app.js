@@ -14,7 +14,6 @@ const displayData=countris=>{
     const displayCountry=document.getElementById('display-country')
     countris.forEach(country=>{
        displayCountry.innerHTML=''
-       console.log(country);
         const div=document.createElement('div')
         div.classList.add('country')
        const language=Object.values(country.languages)
