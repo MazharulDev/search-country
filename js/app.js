@@ -17,10 +17,7 @@ const displayData=countris=>{
        console.log(country);
         const div=document.createElement('div')
         div.classList.add('country')
-        let lag='';
-        for(const [,lagu] of Object.entries(country.languages)){
-            lag+=lagu+' ';
-        }
+       const language=Object.values(country.languages)
         div.innerHTML=`
             <img width="200px" src="${country.flags.png}">
             <h2>${country.name.common}</h2>
@@ -28,7 +25,7 @@ const displayData=countris=>{
             <h5>Capital: ${country.capital}</h5>
             <p>Population: ${country.population}</p>
             <p>Time Zone: ${country.timezones}</p>
-            <p>Language: ${lag}</p>
+            <p>Language: ${language}</p>
             <p>Continent: ${country.continents}</p>
             <p>Sort Spelling: ${country.altSpellings[0]}</p>
         `
